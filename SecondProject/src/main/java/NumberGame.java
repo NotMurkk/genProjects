@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 
 public class NumberGame {
-    public static void main(String[] args) {
+    public void main(String[] args) {
         System.out.println("Hello! What is your name?");
         Scanner user = new Scanner(System.in);
         String userName = user.next();
@@ -45,11 +45,11 @@ public class NumberGame {
 
 
 
-    public static String UserGuess(int answer, int userGuess) {
+    public String UserGuess(int answer, int userGuess) {
         if (userGuess == answer) {
             return "true";
         } else if (userGuess > answer) {
-            return "You guess is too high.";
-        } return "You guess is too low.";
+            return "Your guess is too high.";
+        } return "Your guess is too low.";
     }
 }
