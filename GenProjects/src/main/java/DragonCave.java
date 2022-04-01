@@ -1,6 +1,20 @@
 import java.util.Scanner;
 
 public class DragonCave {
+
+
+
+    public int validNumber(int sc){
+        String fail = "Invalid input, please enter a valid number";
+        int input = sc;
+        if (input != 1 && input != 2) {
+            System.out.println("Invalid input, please enter a valid number");
+            return -1;
+        }
+        return input;
+    }
+
+
     public static void main(String[] args) {
         System.out.println("You are in a land full of dragons. In front of you,");
         System.out.println("you see two caves. In one cave the dragon is friendly");
