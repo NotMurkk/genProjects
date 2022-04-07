@@ -30,7 +30,7 @@ public class Main {
             System.out.println("H A N G M A N");
             System.out.println("_____________");
 
-            resetValues();
+            resetScore();
 
             Collections.addAll(wordArray, word.split(""));
             for(String ignored : wordArray){
@@ -50,9 +50,9 @@ public class Main {
                 String userGuess;
 
                 while(true){
-                    System.out.println("\nGuess a letter or the word:");
+                    System.out.println("\nGuess a letter.");
                     userGuess = user.next().toLowerCase();
-                    indexGuess = guessLetter(userGuess);
+                    indexGuess = letterGuess(userGuess);
                     if (indexGuess == 402){
                         System.out.println("You must guess a letter or word.");
                     }
@@ -60,17 +60,17 @@ public class Main {
                         break;
                     }
                     else{
-                        System.out.println("You have already guessed that letter!");
+                        System.out.println("You have already guessed that letter. Choose again.");
                     }
                 }
                 if(interpretGuess(indexGuess, userGuess)){
                     break;
                 }if(displayedWord.equals(wordArray)){
-                    System.out.println("You guess the word correctly! It was " + word);
+                    System.out.println("Yes! the secret word was is " + word + " You have won!");
                     break;
                 }if(index == 7){
                     printHangman(index);
-                    System.out.println("You Lost the game, the word was " + word + ".");
+                    System.out.println("Sorry the word was : " + word + ".");
                     break;
                 }
             }
@@ -84,7 +84,7 @@ public class Main {
         user.close();
     }
 
-    public static int guessLetter(String guess){
+    public static int letterGuess(String guess){
         if(guess.length() > 1 && !Pattern.matches("[a-zA-Z]+", guess)){
             return 402;
         }
@@ -168,7 +168,7 @@ public class Main {
         System.out.println("    ===");
     }
 
-    public static void resetValues(){
+    public static void resetScore(){
         index = 0;
         word = wordList[(int) Math.floor(Math.random() * 101)].toLowerCase();
         lettersGuessed = new HashSet<>();
